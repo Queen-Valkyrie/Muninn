@@ -1,18 +1,22 @@
+# Import necessary libraries
+from dotenv import load_dotenv
+import os
 import discord
 
-# Insert your bot token directly here
-bot_token = "MTMwMTEwMTA3NzkyNzU2MzI5NQ.GJvObH.JnWhB7nQaDbtXFlvY0Pc99IcQS81uRFd1HqPuc
-"
+# Load the .env file
+load_dotenv()
 
-# Set up the bot client
+# Get the token from the .env file
+bot_token = os.getenv("DISCORD_TOKEN")
+
+# Initialize the bot client
 intents = discord.Intents.default()
-intents.message_content = True  # Allow the bot to read message content
-
+intents.message_content = True  # Enable permissions for reading messages
 client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user}!')
 
-# Start the bot
+# Run the bot
 client.run(bot_token)
