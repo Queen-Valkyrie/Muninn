@@ -1,6 +1,7 @@
 import os
 import discord
 from dotenv import load_dotenv
+import requests
 
 
 # Emoji to language code mapping
@@ -64,10 +65,28 @@ async def on_message(message):
     if message.content == "!hello":
         await message.channel.send("Hello! 👋 I'm here and working!")
 
+import requests
+
 def translate_text(text, target_language):
-    # Placeholder function for translation
-    # TODO: Add API call to DeepL or another translation service here
-    return f"[Translated {target_language} version of: {text}]"
+    # Get the API key from Railway's environment variables
+    api_key = os.getenv("DEEPL_API_KEY")
+    url = "https://api-free.deepl.com/v2/translate"
+
+    # Set up parameters for the translation request
+    params = {
+        "auth_key": api_key,
+        "text": text,
+        "target_lang": target_language,
+    }
+
+    # Send the request to DeepL
+    response = requests.post(url, data=params)
+
+    # Check if the translation was successful
+    if response.status_code == 200:
+        return response.json()["translations"][0]["text"]
+    else:
+        return None  # Return None if the translation fails
 
 # Run the bot using the token
 client.run(bot_token)
