@@ -35,7 +35,7 @@ async def on_ready():
 @client.event
 async def on_reaction_add(reaction, user):
     # Check if the emoji is in our dictionary and is not from the bot itself
-    if str(reaction.emoji) in emoji_to_language and user != client.user:
+    if str(reaction.emoji) in emoji_to_language:
         # Get the language code based on the emoji
         target_language = emoji_to_language[str(reaction.emoji)]
         
