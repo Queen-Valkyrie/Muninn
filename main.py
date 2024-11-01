@@ -68,10 +68,24 @@ async def on_reaction_add(reaction, user):
 
 @client.event
 async def on_message(message):
-    if message.content == "!hello":
-        await message.channel.send("Hello! 👋 I'm here and working!")
+    if message.author == client.user:
+        return
 
-import requests
+    # Languages list command
+    if message.content.lower() == "!languages":
+        languages_list = (
+            "Here are the supported languages and their flags:\n\n"
+            "🇪🇸 🇲🇽 🇦🇷 - **Spanish**\n"
+            "🇫🇷 - **French**\n"
+            "🇩🇪 - **German**\n"
+            "🇮🇹 - **Italian**\n"
+            "🇳🇱 - **Dutch**\n"
+            "🇧🇷 🇵🇹 - **Portuguese** (Brazil and Portugal)\n"
+            "🇬🇧 🇺🇸 - **English** (UK and US)\n"
+        )
+        await message.channel.send(languages_list)
+
+
 
 def translate_text(text, target_language):
     # Get the API key from Railway's environment variables
