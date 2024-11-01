@@ -6,13 +6,19 @@ import requests
 
 # Emoji to language code mapping
 emoji_to_language = {
-    '🇪🇸': 'ES',  # Spanish
-    '🇫🇷': 'FR',  # French
-    '🇩🇪': 'DE',  # German
-    '🇮🇹': 'IT',  # Italian
-    '🇳🇱': 'NL',  # Dutch
-    '🇧🇷': 'PT',  # Portuguese
+    '🇪🇸': 'ES',       # Spanish (Spain)
+    '🇲🇽': 'ES',       # Spanish (Mexico)
+    '🇦🇷': 'ES',       # Spanish (Argentina)
+    '🇫🇷': 'FR',       # French
+    '🇩🇪': 'DE',       # German
+    '🇮🇹': 'IT',       # Italian
+    '🇳🇱': 'NL',       # Dutch
+    '🇧🇷': 'PT-BR',    # Portuguese (Brazil)
+    '🇵🇹': 'PT-PT',    # Portuguese (Portugal)
+    '🇬🇧': 'EN',       # English (UK)
+    '🇺🇸': 'EN',       # English (US)
 }
+
 
 
 # Load the environment variables (only works if running locally)
