@@ -56,12 +56,12 @@ async def on_reaction_add(reaction, user):
         if translated_text:
             await reaction.message.channel.send(
                 f"{user.mention} Translation: {translated_text}",
-                delete_after=10  # Delete after 10 seconds for testing
+                delete_after=300  # Delete after 10 seconds for testing
             )
         else:
             await reaction.message.channel.send(
                 "Sorry, I couldn't translate that message.",
-                delete_after=10  # Delete error message after 10 seconds for testing
+                delete_after=300  # Delete error message after 10 seconds for testing
             )
 
 
