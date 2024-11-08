@@ -17,6 +17,7 @@ emoji_to_language = {
     '🇵🇹': 'PT-PT',    # Portuguese (Portugal)
     '🇬🇧': 'EN',       # English (UK)
     '🇺🇸': 'EN',       # English (US)
+    '🇧🇬': 'BG'        # Bulgarian
 }
 
 
@@ -82,6 +83,7 @@ async def on_message(message):
             "🇳🇱 - **Dutch**\n"
             "🇧🇷 🇵🇹 - **Portuguese** (Brazil and Portugal)\n"
             "🇬🇧 🇺🇸 - **English** (UK and US)\n"
+            "🇧🇬 - **Bulgarian**\n"
         )
         await message.channel.send(languages_list)
 
